@@ -24,11 +24,17 @@ This sprint challenge is divided up into three parts:  Hash tables coding, block
 
 Explain in detail the workings of a dynamic array:
 * What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
+    O(n) because after you affect the front all the subsequent values need to be moved, from the back itsd O(1)
 * What is the worse case scenario if you try to extend the storage size of a dynamic array?
+    Having to resize means expanding the storage size and copying every single value from the original array into the new one
 
 Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
+    A blockchain is essentially a supertightly linked linked list. The blocks are all hashed and their hashes depend on the hashes of the previous blocks, so that tampering with one will affect the chain. The blocks are like objects or dicts with key value pairs like transaction value, time, hash etc.
  
 Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+    Proof of work essentially veryifies that all the hashes are correct and line up. Its hard to guess or calculate each subsequent hash but easy to verify that it is correct and this is built in by design. The longest valid chain is assumed to be the correct chain
+    and tampering and rehashing for your change cant in reality catchup in length to the valid chain, so this is a built in countermeasure.
+    A 51% attach is possible where if enough resources are pooled the group could theoretically tamper with the chain and combine enough computing power to build a version of their chain that exceeds the true and valid longest chain(untampered one)
 
 ## Project Set Up
 

@@ -12,6 +12,19 @@ def get_indices_of_item_weights(weights, length, limit):
     """
     YOUR CODE HERE
     """
+    #Will use enumerate to count an iterable and return object
+    for index, item in enumerate(weights):
+        targetValue = hash_table_retrieve(ht, limit-item)
+        #if targetValue is present---
+        if targetValue != None:
+            if targetValue>index: return(targetValue, index)
+            else: 
+                return (index, targetValue)
+        
+        #or if targetValue is NONE
+        else:
+            hash_table_insert(ht, item, index)
+            
 
     return None
 
